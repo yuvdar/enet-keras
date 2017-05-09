@@ -6,7 +6,7 @@ from keras.layers.normalization import BatchNormalization
 
 
 def bottleneck(encoder, output, upsample=False, reverse_module=False):
-    internal = output / 4
+    internal = output // 4
     input_stride = 2 if upsample else 1
     
     x = Conv2D(internal, (1, 1), padding='same', use_bias=False)(encoder)

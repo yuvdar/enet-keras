@@ -1,12 +1,15 @@
 # coding=utf-8
 from __future__ import absolute_import, division, print_function
+import sys
+sys.path.append("/data/yuval/enet-keras/pycocotools/")
+import pycocotools
 from pycocotools import mask
 from pycocotools.coco import COCO
 import numpy as np
 import numbers
 import abc
 import os
-from . import utils
+import utils
 
 
 def load(dataset_name, data_dir=None, data_type=None):

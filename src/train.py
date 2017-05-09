@@ -7,12 +7,14 @@ from keras import backend as K
 import json
 import numpy as np
 import os
+import sys
+sys.path.append("src/models")
 
 # project scope
 from data.data_loader import load_data, batched
 from data import datasets
 from models import enet as model
-
+print("the model is loaded")
 
 def callbacks(log_dir, checkpoint_dir, model_name):
     """ 
@@ -94,7 +96,7 @@ def train(solver, dataset_name):
                           target_h=dh, target_w=dw,
                           data_type='train2014',
                           resize_mode=resize_mode)
-    nb_train_samples = train_gen.next()
+    nb_train_samples = next(train_gen)
     train_gen = batched(train_gen, batch_size)
     steps_per_epoch = nb_train_samples / batch_size
 
@@ -104,7 +106,7 @@ def train(solver, dataset_name):
                         data_type='val2014',
                         sample_size=nb_train_samples // 10,
                         resize_mode=resize_mode)
-    nb_val_samples = val_gen.next()  # first generator item is the count
+    nb_val_samples = next(val_gen)  # first generator item is the count
     val_gen = batched(val_gen, batch_size)
     validation_steps = nb_val_samples / batch_size
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import print_function, division, absolute_import
-from . import datasets
-from .utils import one_hot_to_rgb
+import datasets
+from utils import one_hot_to_rgb
 from keras.preprocessing.image import array_to_img
 import os
 import sys

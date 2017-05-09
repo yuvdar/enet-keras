@@ -1,7 +1,7 @@
 # coding=utf-8
 from __future__ import absolute_import, print_function
 # from keras import backend as K
-from . import decoder, encoder
+from models import decoder, encoder
 from keras.engine.topology import Input
 from keras.layers.core import Activation, Reshape
 from keras.models import Model
